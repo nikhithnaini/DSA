@@ -26,3 +26,33 @@ if(end==n-1)ans.push_back(-1);
     return ans;
     }
 };
+
+
+
+/////////////////////////stack method /////////////////////////////////
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        map<int,int>m;
+        vector<int>ans;
+        stack<int>st;
+        int n=nums2.size();
+        for(int i=n-1;i>=0;i--){
+            int ele=nums2[i];
+            while(!st.empty()&&st.top()<=ele){
+                st.pop();
+            }
+
+            if(st.empty())m[ele]=-1;
+            else {
+                m[ele]=st.top();
+            }
+            st.push(ele);
+            
+        }
+        for(int i=0;i<nums1.size();i++){
+                ans.push_back(m[nums1[i]]);
+            }
+            return ans;
+    }
+};
