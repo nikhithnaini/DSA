@@ -5,7 +5,7 @@ public:
         int sz=32-__builtin_clz(k);
         int k0=(1<<sz)-k; // reflected number
         if (k0==k) return '1';// k is a symmetry number
-    //    cout<<(1<<sz)<<", k="<<k<<endl;
+    //    cout<<(1<<sz)<<", k="<<k<<endl ;
         return (findKthBit(n, k0)=='0')?'1':'0';
     }
 };
